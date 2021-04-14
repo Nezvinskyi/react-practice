@@ -1,5 +1,6 @@
 .shop {
-  background-color: aquamarine;
+  background-color: #fbf0d9;
+  color: #5f4b32;
   display: flex;
   flex-direction: column;
 }
