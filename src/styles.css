@@ -1,0 +1,29 @@
+.shop {
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+header,
+footer {
+  display: flex;
+  border: 1px solid black;
+}
+.body {
+  display: flex;
+}
+
+.menu {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  border: 1px solid black;
+  display: flex;
+  flex: 1;
+}
+
+.item img {
+  width: 200px;
+}
