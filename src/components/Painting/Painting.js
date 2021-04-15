@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import defaultImg from './default.jpg';
+import './Painting.css';
 
 const Painting = ({ url, title, profileUrl, tag, price, quantity }) => (
-  <div>
+  <div className="Painting">
     <img src={url} alt={title} width={480} />
     <h2>{title}</h2>
     <p>

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import 'modern-normalize/modern-normalize.css';
+import './styles.css';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -8,17 +10,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
-
-// const link = React.createElement(
-//   'a',
-//   { href: 'reactjs.org', target: '_blank' },
-//   'this is a link',
-// );
-
-// const jsxLink = <a href="reactjs.org">this is a link</a>;
-// console.log(link);
-// console.log(jsxLink);
-
-// ReactDOM.render(link, document.getElementById('root'));
-
-//==================

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Painting from './Painting';
+import Painting from '../Painting/Painting';
+import './PaintingList.css';
 
 const PaintingList = ({ items }) => (
-  <ul>
+  <ul className="PaintingList">
     {items.map(painting => (
-      <li key={painting.id}>
+      <li key={painting.id} className="PaintingList__item">
         <Painting
           url={painting.url}
           title={painting.title}

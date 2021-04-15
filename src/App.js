@@ -1,12 +1,25 @@
 import React from 'react';
-import Panel from './components/Panel';
-import Logo from './components/Logo';
-import PaintingList from './components/PaintingList';
+import Panel from './components/Panel/Panel';
+import PaintingList from './components/PaintingList/PaintingList';
 import paintings from './paintings.json';
+import ColorPicker from './components/ColorPicker/ColorPicker';
+import Notification from './components/Notification/Notification';
+import Layout from './components/Layout/Layout';
+
+const colorPickerOptions = [
+  { label: 'red', color: '#F44336' },
+  { label: 'green', color: '#4CAF50' },
+  { label: 'blue', color: '#2196F3' },
+  { label: 'grey', color: '#607D8B' },
+  { label: 'pink', color: '#E91E63' },
+  { label: 'indigo', color: '#3F51B5' },
+];
 
 const App = () => {
   return (
-    <div>
+    <Layout>
+      {' '}
+      <ColorPicker options={colorPickerOptions} />
       <Panel title="Latest news">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi
@@ -26,9 +39,10 @@ const App = () => {
           sint.
         </p>
       </Panel>
-      <Logo text="Main component - container of the application" />
+      <Notification text="CSS-modules are amazing" type="success" />
+      <Notification text="Do not use inline styles too often" type="error" />
       <PaintingList items={paintings} />
-    </div>
+    </Layout>
   );
 };
 

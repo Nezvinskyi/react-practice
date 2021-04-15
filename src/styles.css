@@ -1,0 +1,10 @@
+body {
+  background-color: #fbf0d9;
+  color: #5f4b32;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
