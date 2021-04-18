@@ -5,6 +5,7 @@ import paintings from './paintings.json';
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import Notification from './components/Notification/Notification';
 import Layout from './components/Layout/Layout';
+import Counter from './components/Counter/Counter';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -42,6 +43,7 @@ const App = () => {
       <Notification text="CSS-modules are amazing" type="success" />
       <Notification text="Do not use inline styles too often" type="error" />
       <PaintingList items={paintings} />
+      <Counter />
     </Layout>
   );
 };
