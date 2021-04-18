@@ -1,29 +1,46 @@
-// из конспекта
-
 import { Component } from 'react'
+import './Counter.scss'
+import Value from "./Value";
+import Controls from "./Controls";
+
 
 class Counter extends Component{
-	constructor() {
-		super();
-		this.handleIncrement = this.handleIncrement.bind(this);
-}
 
 	static defaultProps = {
-		step: 1,
+		initialValue: 123
 	}
 
-	handleIncrement(evt) {
-		console.log(evt);
-		console.log(this.props);
+	static propTypes = {
+		//
+	}
+
+	state = {
+		value: this.props.initialValue,
+	}
+
+	handleIncrement = (event) => {
+		this.setState(prevState => ({ value: prevState.value + 1 }))
+
+	}
+
+	handleDecrement = () => {
+
+		this.setState(prevState => ({ value: prevState.value - 1 }))
+	}
+
+	handleReset = () => {
+		this.setState({value: 0})
 	}
 
 	render() {
-		const { step } = this.props;
+		// const { step } = this.props;
 		return (
-			<div>
-			<button type='button' onClick={this.handleIncrement}>Increment by {step}</button>
-			<span>0</span>
-			<button type='button'>Decrement by {step}</button>
+			<div className='Counter'>
+
+				<Value value={this.state.value} />
+
+				<Controls onIncrement={this.handleIncrement} onDecrement={this.handleDecrement} onReset={this.handleReset}/>
+
 		</div>);
 }
 }

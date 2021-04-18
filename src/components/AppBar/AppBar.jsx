@@ -3,7 +3,6 @@ import Logo from '../Logo'
 const styles = {
   header: {
     minHeight: 80,
-    backgroundColor: 'palevioletred',
   },
 };
 

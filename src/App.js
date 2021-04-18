@@ -1,11 +1,8 @@
 import React from 'react';
-import Panel from './components/Panel/Panel';
-import PaintingList from './components/PaintingList/PaintingList';
-import paintings from './paintings.json';
-import ColorPicker from './components/ColorPicker/ColorPicker';
-import Notification from './components/Notification/Notification';
 import Layout from './components/Layout/Layout';
-import Counter from './components/Counter/Counter';
+// import Counter from './components/Counter';
+// import Dropdown from './components/Dropdown';
+import ColorPicker from './components/ColorPicker';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -19,31 +16,10 @@ const colorPickerOptions = [
 const App = () => {
   return (
     <Layout>
-      {' '}
+      <h1>03-Events and State</h1>
+      {/* <Counter initialValue={5} /> */}
+      {/* <Dropdown /> */}
       <ColorPicker options={colorPickerOptions} />
-      <Panel title="Latest news">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit modi
-          reprehenderit exercitationem natus dolore consequuntur alias quisquam
-          aliquam, laboriosam, commodi recusandae hic nostrum debitis,
-          aspernatur repellendus. A voluptate maiores velit dolore impedit
-          inventore dolor pariatur? Aliquam eveniet cupiditate nam neque,
-          tenetur error officiis aliquid numquam ratione excepturi quod debitis
-          enim.
-        </p>
-        <a href="./index.html">Read...</a>
-      </Panel>
-      <Panel>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aliquam
-          suscipit vero natus quidem! Deleniti consectetur ipsa debitis ducimus
-          sint.
-        </p>
-      </Panel>
-      <Notification text="CSS-modules are amazing" type="success" />
-      <Notification text="Do not use inline styles too often" type="error" />
-      <PaintingList items={paintings} />
-      <Counter />
     </Layout>
   );
 };
