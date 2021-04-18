@@ -1,27 +1,22 @@
-import React from 'react';
-import Layout from './components/Layout/Layout';
-// import Counter from './components/Counter';
-// import Dropdown from './components/Dropdown';
-import ColorPicker from './components/ColorPicker';
+import React, { Component } from 'react';
+import Layout from './components/Layout';
+import TodoList from './components/TodoList';
+import todos from './data/todos.json';
 
-const colorPickerOptions = [
-  { label: 'red', color: '#F44336' },
-  { label: 'green', color: '#4CAF50' },
-  { label: 'blue', color: '#2196F3' },
-  { label: 'grey', color: '#607D8B' },
-  { label: 'pink', color: '#E91E63' },
-  { label: 'indigo', color: '#3F51B5' },
-];
+class App extends Component {
+  state = {
+    todos: todos,
+  };
 
-const App = () => {
-  return (
-    <Layout>
-      <h1>03-Events and State</h1>
-      {/* <Counter initialValue={5} /> */}
-      {/* <Dropdown /> */}
-      <ColorPicker options={colorPickerOptions} />
-    </Layout>
-  );
-};
+  render() {
+    const { todos } = this.state;
+    return (
+      <Layout>
+        <h1>Todo List</h1>
+        <TodoList todos={todos} />
+      </Layout>
+    );
+  }
+}
 
 export default App;
