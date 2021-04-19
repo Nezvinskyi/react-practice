@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ProductList from '../components/productList';
 
 const products = [
@@ -31,10 +32,22 @@ const products = [
   },
 ];
 
-const Products = () => (
-  <div className="products">
-    <ProductList products={products} />
-  </div>
-);
+const Products = () => {
+  const [products, setProducts] = useState([
+    {
+      id: 1,
+      name: 'phone 1',
+      price: 900,
+      count: 10,
+      img: 'iphone1',
+    },
+  ]);
+
+  return (
+    <div className="products">
+      <ProductList products={products} />
+    </div>
+  );
+};
 
 export default Products;
