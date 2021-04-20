@@ -1,5 +1,5 @@
-import AppBar from '../AppBar/AppBar'
-import Container from '../Container/Container'
+import AppBar from '../AppBar'
+import Container from '../Container'
 
 const Layout = ({ children }) => (
 	<>
