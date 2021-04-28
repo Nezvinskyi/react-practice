@@ -1,4 +1,4 @@
-const Filter = ({value, onChange}) => {
+const TodoFilter = ({value, onChange}) => {
 	return (
 		<label>
 			Filter
@@ -10,4 +10,4 @@ const Filter = ({value, onChange}) => {
 	 );
 }
  
-export default Filter;
+export default TodoFilter;
