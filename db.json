@@ -1,0 +1,29 @@
+{
+  "todos": [
+    {
+      "id": "id-1",
+      "text": "Выучить основы React",
+      "completed": false
+    },
+    {
+      "id": "id-2",
+      "text": "Разобраться с React Router",
+      "completed": false
+    },
+    {
+      "id": "id-3",
+      "text": "Привыкнуть к Redux",
+      "completed": false
+    },
+    {
+      "text": ".ghjbkldf",
+      "completed": false,
+      "id": "QGcZWQy"
+    },
+    {
+      "text": "vmnghku",
+      "completed": true,
+      "id": "QJ82h7E"
+    }
+  ]
+}
