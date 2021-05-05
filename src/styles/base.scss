@@ -35,3 +35,32 @@ p {
 .NavLink--active {
   color: cadetblue;
 }
+
+// .AppBar {
+// }
+
+.HomeView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 80px);
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url('../images/home-bg.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.HomeView-title {
+  color: #fff;
+  font-size: 64px;
+
+  &::selection {
+    background-color: #fff;
+    color: #212121;
+  }
+}
