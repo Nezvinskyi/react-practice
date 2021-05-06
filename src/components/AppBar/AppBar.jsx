@@ -1,11 +1,11 @@
-import Logo from '../Logo'
+import Navigation from "../Navigation/Navigation";
 
 
 
 const AppBar = () => (
-  <header className="AppBar">
-    <Logo text="ЛОГО" />
-  </header>
+	<header className='AppBar'>
+		<Navigation/>
+	</header>
 );
 
 export default AppBar;

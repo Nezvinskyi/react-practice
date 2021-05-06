@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { NavLink, Route } from 'react-router-dom';
-import AuthorBooks from '../components/AuthorBooks';
+import BookList from '../components/BookList';
 
 class AuthorsView extends Component {
   state = {
@@ -16,8 +16,7 @@ class AuthorsView extends Component {
   }
   render() {
     return (
-      <>
-        <h1>This is Authors page</h1>
+      <div className="container-fluid">
         <ul>
           {this.state.authors.map(author => (
             <li key={author.id}>
@@ -37,11 +36,16 @@ class AuthorsView extends Component {
                 author => author.id === bookId,
               );
 
-              return <AuthorBooks {...props} books={author.books} />;
+              return (
+                <>
+                  <h2>Author's books: {author.name}</h2>
+                  <BookList {...props} books={author.books} />
+                </>
+              );
             }}
           />
         )}
-      </>
+      </div>
     );
   }
 }
