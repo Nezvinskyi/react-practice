@@ -26,8 +26,15 @@ const useStyles = createUseStyles({
 
 	image: {
 		width: 200,
-	}
-})
+	},
+
+	green: {
+		'&.MuiPaper-root': {
+
+			backgroundColor: 'green'
+		},
+	},
+});
 
 const ProductItem = ({ product }) =>
 {
@@ -35,11 +42,14 @@ const ProductItem = ({ product }) =>
 	return (
 		<li className={classes.item}>
 			<CardActionArea >
-				<Card className={classes.card}>
+				<Card className={[classes.card, product.insurance ? classes.green : '']}>
 					<img className={classes.image} src={loadImage(product.img)} alt={product.name} />
 					<p>Name: {product.name}</p>
 					<p>Price: {product.price}</p>
 					<p>Count: {product.count}</p>
+					<p>Color: {product.color || '--'}</p>
+					<p>A/I: {product?.insurance?.toString() || '--'}</p>
+					<p>I/S: {product?.software?.toString() || '--'}</p>
 				</Card>
 			</CardActionArea>
 			<IconButton>
