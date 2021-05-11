@@ -9,13 +9,23 @@ const items = (state = [], { type, payload }) => {
     case actionTypes.DELETE:
       return state.filter(({ id }) => id !== payload);
 
+    case actionTypes.TOGGLE_COMPLETED:
+      return state.map(todo =>
+        todo.id === payload ? { ...todo, completed: !todo.completed } : todo,
+      );
+
     default:
       return state;
   }
 };
 
-const filter = (state = '', action) => {
-  return state;
+const filter = (state = '', { type, payload }) => {
+  switch (type) {
+    case actionTypes.CHANGE_FILTER:
+      return payload;
+    default:
+      return state;
+  }
 };
 
 export default combineReducers({
