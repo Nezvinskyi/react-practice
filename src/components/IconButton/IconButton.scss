@@ -9,6 +9,9 @@
   font: inherit;
   background-color: $green;
   cursor: pointer;
+  // justify-self: flex-end;
+  // align-self: flex-end;
+  margin-left: auto;
 
   display: inline-flex;
   align-items: center;

@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import TodoList from '../components/TodoList';
 import TodoEditor from '../components/TodoEditor';
 import TodoFilter from '../components/TodoFilter';
+import Stats from '../components/Stats';
 import Modal from '../components/Modal';
 import IconButton from '../components/IconButton';
 import { ReactComponent as AddIcon } from '../icons/add.svg';
@@ -10,20 +11,6 @@ import { ReactComponent as AddIcon } from '../icons/add.svg';
 class TodosView extends Component {
   state = {
     showModal: false,
-  };
-
-  formSubmitHandler = data => {
-    console.log(data);
-  };
-
-  getCompletedTodos = () => {
-    const { todos } = this.state;
-    return todos.reduce((acc, todo) => (todo.completed ? acc + 1 : acc), 0);
-  };
-
-  getPendingTodos = () => {
-    const { todos } = this.state;
-    return todos.reduce((acc, todo) => (!todo.completed ? acc + 1 : acc), 0);
   };
 
   toggleModal = () => {
@@ -34,8 +21,6 @@ class TodosView extends Component {
 
   render() {
     const { showModal } = this.state;
-    // const completedTodos = this.getCompletedTodos();
-    // const pendingTodos = this.getPendingTodos();
 
     return (
       <Layout>
@@ -50,17 +35,11 @@ class TodosView extends Component {
         </IconButton>
         {showModal && (
           <Modal onClose={this.toggleModal}>
-            <TodoEditor onSubmit={this.addTodo} />
+            <TodoEditor onSave={this.toggleModal} />
           </Modal>
         )}
 
-        {/* <Form onSubmit={this.formSubmitHandler} /> */}
-
-        {/* <div>
-          <p>Total amount of todo: {todos.length}</p>
-          <p>Done: {completedTodos}</p>
-          <p>Pending: {pendingTodos} </p>
-        </div> */}
+        <Stats />
 
         <TodoFilter />
 

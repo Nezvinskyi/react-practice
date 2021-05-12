@@ -3,7 +3,7 @@ import {ReactComponent as DeleteIcon} from '../../icons/delete.svg';
 
 
 const Todo = ({ text, completed, onToggleCompleted, onDelete }) =>  (
-	<div>
+	<>
 			<input
 				type="checkbox"
 				className="TodoList__checkbox"
@@ -16,7 +16,7 @@ const Todo = ({ text, completed, onToggleCompleted, onDelete }) =>  (
 				onClick={onDelete}>
 					<DeleteIcon width='32' height='32' fill='#fff' />
 			</IconButton>
-	</div>
+	</>
 );
 
  
