@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 // import { composeWithDevTools } from 'redux-devtools-extension'; //uninstall npm module
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import counterReducer from './counter/counter-reducer';
 import todosReducer from './todos/todos-reducer';
@@ -16,11 +16,6 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
-const persistConfig = {
-  key: 'hello',
-  storage,
-};
 
 //before
 // const rootReducer = combineReducers({
@@ -43,14 +38,29 @@ const middleware = [
   logger,
 ];
 
-const rootReducer = combineReducers({
-  counter: counterReducer,
-  todos: todosReducer,
-});
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const rootReducer = combineReducers({
+//   // counter: persistReducer(persistConfig, counterReducer),
+//   todos: persistReducer(persistConfig, todosReducer),
+// });
+
+// const persistedReducer = rootReducer;
+
+const todoPersistConfig = {
+  key: 'todos',
+  storage,
+  blacklist: ['filter'],
+};
+
+const counterPersistConfig = {
+  key: 'counter',
+  storage,
+};
 
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    todos: persistReducer(todoPersistConfig, todosReducer),
+    counter: persistReducer(counterPersistConfig, counterReducer),
+  },
   devTools: process.env.NODE_ENV === 'development',
   middleware,
 });
