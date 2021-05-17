@@ -2,6 +2,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import IconButton from '@material-ui/core/IconButton';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import DeleteForeverOutlined from '@material-ui/icons/DeleteForeverOutlined';
 import { createUseStyles } from 'react-jss';
 
 import {  loadImage } from "../utils/loadImage";
@@ -36,9 +37,11 @@ const useStyles = createUseStyles({
 	},
 });
 
-const ProductItem = ({ product }) =>
-{
+const ProductItem = ({ product , onDelete}) => {
 	const classes = useStyles(product.price)
+
+	const handleDelete = () => onDelete(product.id)
+
 	return (
 		<li className={classes.item}>
 			<CardActionArea >
@@ -52,11 +55,17 @@ const ProductItem = ({ product }) =>
 					<p>I/S: {product?.software?.toString() || '--'}</p>
 				</Card>
 			</CardActionArea>
-			<IconButton>
-				<AddShoppingCartIcon />
-			</IconButton>
+
+			<div className="icons">
+				<IconButton>
+					<AddShoppingCartIcon />
+				</IconButton>
+				<IconButton onClick={handleDelete}>
+					<DeleteForeverOutlined />
+				</IconButton>
+			</div>
 			
 		</li>)
-}
+};
 
 export default ProductItem;  

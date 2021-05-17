@@ -9,13 +9,13 @@ const useStyles = createUseStyles({
 	}
 })
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, onDelete }) => {
 	const classes = useStyles();
 	return (
 		<ul className={classes.list}> 
 		{products.map(product => (
 				!!product.count &&
-				(<ProductItem key={product.id} product={product} />)
+				(<ProductItem key={product.id} product={product} onDelete={onDelete} />)
 		
 			))}
 		</ul>
