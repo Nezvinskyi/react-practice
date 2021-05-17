@@ -1,49 +1,24 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { createAction } from '@reduxjs/toolkit';
-import shortid from 'shortid';
-// import actionTypes from './todos-types';
 
-// before
-// const addTodo = text => ({
-//   type: actionTypes.ADD,
-// payload: {
-//   id: shortid.generate(),
-//   text,
-//   completed: false,
-// },
-// });
+export const fetchTodosRequest = createAction('todo/fetchTodosRequest');
+export const fetchTodosSuccess = createAction('todos/fetchTodosSuccess');
+export const fetchTodosError = createAction('todos/fetchTodosError');
 
-const addTodo = createAction('todos/add', text => {
-  return {
-    payload: {
-      id: shortid.generate(),
-      text,
-      completed: false,
-    },
-  };
-});
+export const addTodoRequest = createAction('todo/addTodoRequest');
+export const addTodoSuccess = createAction('todos/addTodoSuccess');
+export const addTodoError = createAction('todos/addTodoError');
 
-// before
-// const deleteTodo = todoId => ({
-//   type: actionTypes.DELETE,
-//   payload: todoId,
-// });
+export const deleteTodoRequest = createAction('todo/deleteTodoRequest');
+export const deleteTodoSuccess = createAction('todos/deleteTodoSuccess');
+export const deleteTodoError = createAction('todos/deleteTodoError');
 
-const deleteTodo = createAction('todos/delete');
+export const toggleCompletedRequest = createAction(
+  'todo/toggleCompletedRequest',
+);
+export const toggleCompletedSuccess = createAction(
+  'todos/toggleCompletedSuccess',
+);
+export const toggleCompletedError = createAction('todos/toggleCompletedError');
 
-// const toggleTodo = todoId => ({
-//   type: actionTypes.TOGGLE_COMPLETED,
-//   payload: todoId,
-// });
-
-const toggleTodo = createAction('todos/toggleCompleted');
-
-// before
-// const changeFilter = value => ({
-//   type: actionTypes.CHANGE_FILTER,
-//   payload: value,
-// });
-
-const changeFilter = createAction('todos/changeFilter');
-
-export default { addTodo, deleteTodo, toggleTodo, changeFilter };
+export const changeFilter = createAction('todos/changeFilter');

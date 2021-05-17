@@ -1,53 +1,54 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import actions from './todos-actions';
-
-// before
-// const items = (state = [], { type, payload }) => {
-//   switch (type) {
-//     case actionTypes.ADD:
-//       return [...state, payload];
-
-//     case actionTypes.DELETE:
-//       return state.filter(({ id }) => id !== payload);
-
-//     case actionTypes.TOGGLE_COMPLETED:
-//       return state.map(todo =>
-//         todo.id === payload ? { ...todo, completed: !todo.completed } : todo,
-//       );
-
-//     default:
-//       return state;
-//   }
-// };
+import {
+  fetchTodosRequest,
+  fetchTodosSuccess,
+  fetchTodosError,
+  addTodoRequest,
+  addTodoSuccess,
+  addTodoError,
+  deleteTodoRequest,
+  deleteTodoSuccess,
+  deleteTodoError,
+  toggleCompletedRequest,
+  toggleCompletedSuccess,
+  toggleCompletedError,
+  changeFilter,
+} from './todos-actions';
 
 const items = createReducer([], {
-  [actions.addTodo]: (state, action) => [...state, action.payload],
-  [actions.deleteTodo]: (state, action) =>
+  [fetchTodosSuccess]: (_, { payload }) => payload,
+  [addTodoSuccess]: (state, action) => [...state, action.payload],
+  [deleteTodoSuccess]: (state, action) =>
     state.filter(({ id }) => id !== action.payload),
-  [actions.toggleTodo]: (state, action) =>
-    state.map(todo =>
-      todo.id === action.payload
-        ? { ...todo, completed: !todo.completed }
-        : todo,
-    ),
+  [toggleCompletedSuccess]: (state, { payload }) =>
+    state.map(todo => (todo.id === payload.id ? payload : todo)),
 });
-
-// before
-// const filter = (state = '', { type, payload }) => {
-//   switch (type) {
-//     case 'todos/filter':
-//       return payload;
-//     default:
-//       return state;
-//   }
-// };
 
 const filter = createReducer('', {
-  [actions.changeFilter]: (_, action) => action.payload,
+  [changeFilter]: (_, action) => action.payload,
 });
+
+const loading = createReducer(false, {
+  [fetchTodosRequest]: () => true,
+  [fetchTodosSuccess]: () => false,
+  [fetchTodosError]: () => false,
+  [addTodoRequest]: () => true,
+  [addTodoSuccess]: () => false,
+  [addTodoError]: () => false,
+  [deleteTodoRequest]: () => true,
+  [deleteTodoSuccess]: () => false,
+  [deleteTodoError]: () => false,
+  [toggleCompletedRequest]: () => true,
+  [toggleCompletedSuccess]: () => false,
+  [toggleCompletedError]: () => false,
+});
+
+const error = createReducer(null, {});
 
 export default combineReducers({
   items,
   filter,
+  loading,
+  error,
 });

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'http://localhost:1234';
 
 const fetchTodos = () => {
   return axios.get('/todos').then(response => response.data);
@@ -15,7 +15,7 @@ const deleteTodo = todoId => {
 };
 
 const updateTodo = (todoId, update) => {
-  return axios.patch(`/todos/${todoId}`, update).then(({ data }) => data);
+  return;
 };
 
 export default { fetchTodos, addTodo, deleteTodo, updateTodo };
