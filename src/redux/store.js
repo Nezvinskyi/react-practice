@@ -24,7 +24,7 @@ const middleware = [
     },
   }),
   // myMiddleware,
-  logger,
+  // logger,
 ];
 
 const store = configureStore({
