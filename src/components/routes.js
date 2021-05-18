@@ -21,6 +21,11 @@ const MovieSearch = lazy(() =>
 const MovieDetails = lazy(() =>
   import('../Pages/MovieDetails' /* webpackChunkName: "MovieDetails-page" */),
 );
+const ContextDemo = lazy(() =>
+  import(
+    '../Pages/ContextDemo/ContextDemo' /* webpackChunkName: "ContextDemo-page" */
+  ),
+);
 
 export const routes = [
   {
@@ -58,5 +63,10 @@ export const routes = [
     path: '/movie-search',
     label: 'Movie Search',
     component: MovieSearch,
+  },
+  {
+    path: '/context-demo',
+    label: 'Context Demo',
+    component: ContextDemo,
   },
 ];
