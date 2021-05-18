@@ -15,7 +15,7 @@ import {
   toggleCompletedError,
 } from './todos-actions';
 
-axios.defaults.baseURL = 'http://localhost:1234';
+axios.defaults.baseURL = 'http://localhost:5000';
 
 export const fetchTodos = () => async dispatch => {
   dispatch(fetchTodosRequest());

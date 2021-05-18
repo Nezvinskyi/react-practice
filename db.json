@@ -117,14 +117,9 @@
   ],
   "todos": [
     {
-      "text": "dfsdfdf",
-      "completed": true,
-      "id": 1
-    },
-    {
-      "text": "test\n",
+      "text": "tets\n",
       "completed": false,
-      "id": 2
+      "id": 1
     }
   ]
 }
