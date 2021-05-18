@@ -120,6 +120,11 @@
       "text": "dfsdfdf",
       "completed": true,
       "id": 1
+    },
+    {
+      "text": "test\n",
+      "completed": false,
+      "id": 2
     }
   ]
 }

@@ -9,6 +9,7 @@ import Modal from '../components/Modal';
 import IconButton from '../components/IconButton';
 import { ReactComponent as AddIcon } from '../icons/add.svg';
 import * as todosOperations from '../redux/todos/todos-operations';
+import todosSelectors from '../redux/todos/todos-selectors';
 
 class TodosView extends Component {
   state = {
@@ -55,7 +56,7 @@ class TodosView extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoadingTodos: state.todos.loading,
+  isLoadingTodos: todosSelectors.getIsLoading(state),
 });
 
 const mapDispatchToProps = dispatch => ({

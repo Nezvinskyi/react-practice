@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import {connect} from 'react-redux';
 import Todo from '../Todo';
 import * as todosOperations from '../../redux/todos/todos-operations';
+import todosSelectors from '../../redux/todos/todos-selectors';
 import './TodoList.scss';
 
 const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
@@ -24,17 +25,8 @@ const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
   </ul>
 );
 
- const getFilteredTodos = (allTodos, filter) => {
-
-	const normalizedFilter = filter.toLowerCase();
-
-	return allTodos.filter(({text}) =>
-      text.toLowerCase().includes(normalizedFilter),
-    );
-  };
-
-const mapStateToProps = ({ todos: { items, filter } }) => ({
-	todos: getFilteredTodos(items, filter)
+const mapStateToProps = (state) => ({
+	todos: todosSelectors.getFilteredTodos(state)
 })
 
 const mapDispatchToProps = dispatch => ({

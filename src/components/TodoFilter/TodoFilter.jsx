@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import * as todoActions from '../../redux/todos/todos-actions';
+import todosSelectors from '../../redux/todos/todos-selectors';
 import './TodoFilter.scss'
 
 const TodoFilter = ({ value, onChange }) => (
@@ -15,7 +16,7 @@ const TodoFilter = ({ value, onChange }) => (
 )
 
 const mapStateToProps = state => ({
-	value: state.todos.filter
+	value: todosSelectors.getFilter(state)
 })
 
 const mapDispatchToProps = dispatch => ({
