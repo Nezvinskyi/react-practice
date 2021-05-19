@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:1234';
+axios.defaults.baseURL = 'http://localhost:5000';
 
 export const getProducts = () =>
   axios.get('/products').then(({ data }) => data);
