@@ -3,6 +3,11 @@ import { lazy } from 'react';
 const HomePage = lazy(() =>
   import('../Pages/HomePage' /* webpackChunkName: "home-page" */),
 );
+
+const Todos = lazy(() =>
+  import('../Pages/Todos/index.jsx' /* webpackChunkName: "Todos-page" */),
+);
+
 const Products = lazy(() =>
   import('../Pages/Products' /* webpackChunkName: "Products-page" */),
 );
@@ -38,6 +43,11 @@ export const routes = [
     path: '/products',
     label: 'Products',
     component: Products,
+  },
+  {
+    path: '/todos',
+    label: 'Todos',
+    component: Todos,
   },
   {
     path: '/contacts',
