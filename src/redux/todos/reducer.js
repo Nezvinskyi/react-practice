@@ -1,33 +1,39 @@
+import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import types from './types';
+// import types from './types';
+
+import {
+  getTodosRequest,
+  getTodosSucces,
+  getTodosFailure,
+  addTodoSucces,
+  addTodoFailure,
+  addTodoRequest,
+} from './actions';
 
 const initialState = {
-  items: [
-    {
-      id: 1,
-      text: 'do something',
-      created: Date.now(),
-      isDone: false,
-    },
-  ],
+  isLoading: false,
+  items: [],
+  error: '',
 };
 
-const items = (state = initialState.items, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case types.ADD_TODO:
-      return [...state, payload];
-    case types.DELETE_TODO:
-      return state.filter(({ id }) => id !== payload);
+const isLoading = createReducer(initialState.isLoading, {
+  [getTodosRequest]: () => true,
+  [getTodosSucces]: () => false,
+  [getTodosFailure]: () => false,
+  [addTodoRequest]: () => true,
+  [addTodoSucces]: () => false,
+  [addTodoFailure]: () => false,
+});
 
-    case types.TOGGLE_TODO:
-      return state.map(todo =>
-        todo.id === payload ? { ...todo, isDone: !todo.isDone } : todo,
-      );
+const items = createReducer(initialState.items, {
+  [getTodosSucces]: (_, action) => action.payload,
+  [addTodoSucces]: (state, action) => [...state, action.payload],
+});
 
-    default:
-      return state;
-  }
-};
+const error = createReducer(initialState.error, {
+  [getTodosFailure]: (_, action) => action.payload,
+  [addTodoFailure]: (_, action) => action.payload,
+});
 
-export default combineReducers({ items });
+export default combineReducers({ items, isLoading, error });

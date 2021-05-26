@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../redux/todos/actions';
+// import { addTodo } from '../../redux/todos/actions';
+import { addTodo } from '../../redux/todos/operations';
 
 const TodosForm = () => {
   const [value, setValue] = useState('');
@@ -13,7 +14,7 @@ const TodosForm = () => {
     event.preventDefault();
 
     const newTodo = {
-      id: Date.now(),
+      // id: Date.now(),
       text: value,
       created: Date.now(),
       isDone: false,
