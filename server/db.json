@@ -46,34 +46,10 @@
       "isDone": true
     },
     {
-      "text": "second todo",
-      "created": 1619459477051,
+      "text": "fdg",
+      "created": 1622127834933,
       "isDone": false,
       "id": 1619456581972
-    },
-    {
-      "text": "dfg",
-      "created": 1619459601278,
-      "isDone": false,
-      "id": 1619456581974
-    },
-    {
-      "text": "dfghj",
-      "created": 1619459701749,
-      "isDone": false,
-      "id": 1619456581975
-    },
-    {
-      "text": "2",
-      "created": 1621974581436,
-      "isDone": false,
-      "id": 1619456581976
-    },
-    {
-      "text": "12",
-      "created": 1621974663488,
-      "isDone": false,
-      "id": 1619456581977
     }
   ]
 }
