@@ -12,7 +12,6 @@ const getTotalTodoCount = state => {
 };
 
 const getCompletedTodoCount = createSelector([getAllTodos], todos => {
-  console.log('getting completed todos');
   return todos.reduce((acc, todo) => (todo.completed ? acc + 1 : acc), 0);
 });
 
@@ -47,11 +46,10 @@ const getPendingTodoCount = createSelector([getAllTodos], todos => {
 const getFilteredTodos = createSelector(
   [getAllTodos, getFilter],
   (todos, filter) => {
-    console.log('getting all todos');
     const normalizedFilter = filter.toLowerCase();
 
-    return todos.filter(({ text }) =>
-      text.toLowerCase().includes(normalizedFilter),
+    return todos.filter(({ description }) =>
+      description.toLowerCase().includes(normalizedFilter),
     );
   },
 );

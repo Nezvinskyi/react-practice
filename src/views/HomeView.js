@@ -4,7 +4,7 @@ const HomeView = () => {
   return (
     <div className="HomeView">
       <h1 className="HomeView-title">
-        Welcome
+        Welcome{' '}
         <span role="img" aria-label="face emoji">
           🤓
         </span>
